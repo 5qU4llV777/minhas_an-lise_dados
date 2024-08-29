@@ -16,7 +16,7 @@ name_count_price = tabela[["Name", "User Rating Count", "Price"]].groupby("Name"
 display(name_count_price) <<< se estiver usando jupyter
 
 # Análise final 
-name_count_price = tabela[["Name", "User Rating Count", "Price", Genres]].groupby(["Name", "User Rating Count", "Price", "Genres"]).sum()
+name_count_price = tabela[["Name", "User Rating Count", "Price", "Genres"]].groupby(["Name", "User Rating Count", "Price", "Genres"]).sum()
 <br>
 display(name_count_price) <<< se estiver usando jupyter
 
