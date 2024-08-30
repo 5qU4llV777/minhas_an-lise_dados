@@ -6,18 +6,18 @@ tabela = pd.read_csv("") <<< nome da tabela ou caminho
 display(tabela) <<< se estiver usando jupyter
 
 # Separando colunas e somando
-name_count_price = tabela["User Rating Count"].sum()
+nome da variavel de sua escolha >>>>> maisjogados = tabela["aqui nome da tabela"].sum()
 <br>
-print(name_count_price)
+print(maisjogados)
 
 # Agrupando e somando
-name_count_price = tabela[["Name", "User Rating Count", "Price"]].groupby("Name").sum()
+maisjogados = tabela[["aqui nome das tabelas"]].groupby("Name").sum()
 <br>
-display(name_count_price) <<< se estiver usando jupyter
+display(maisjogados) <<< se estiver usando jupyter
 
 # Análise final 
-name_count_price = tabela[["Name", "User Rating Count", "Price", "Genres"]].groupby(["Name", "User Rating Count", "Price", "Genres"]).sum()
+maisjogados = tabela[["Rank", "Name", "Platform", "Year", "Genre", "Publisher",	"NA_Sales",	"EU_Sales",	"JP_Sales", "Global_Sales"]].groupby(["Rank", "Name", "Platform", "Year", "Genre", "Publisher",	"NA_Sales",	"EU_Sales",	"JP_Sales", "Global_Sales"]).sum()
 <br>
-display(name_count_price) <<< se estiver usando jupyter
+display(maisjogados) <<< se estiver usando jupyter
 
 
