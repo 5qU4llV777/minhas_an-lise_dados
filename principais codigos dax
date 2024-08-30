@@ -1,0 +1,118 @@
+O Power BI é uma ferramenta poderosa para visualização e análise de dados, e o DAX (Data Analysis Expressions) é fundamental para aproveitar ao máximo suas capacidades. Neste artigo, exploraremos alguns dos códigos DAX mais importantes, que vão desde funções básicas até técnicas mais avançadas, ajudando você a criar relatórios e dashboards mais eficazes.
+
+
+
+1. Funções Básicas
+1.1. SUM
+
+A função SUM é uma das mais utilizadas para somar valores em uma coluna.
+
+TotalVendas = SUM(Tabela[Vendas])
+
+
+
+1.2. AVERAGE
+
+A função AVERAGE calcula a média dos valores em uma coluna.
+
+MediaVendas = AVERAGE(Tabela[Vendas])
+1.3. COUNT
+
+Para contar o número de linhas em uma coluna, usamos a função COUNT.
+
+ContagemVendas = COUNT(Tabela[Vendas])
+2. Funções de Tempo
+2.1. YEAR
+
+Extrai o ano de uma data.
+
+AnoVenda = YEAR(Tabela[DataVenda])
+2.2. DATEDIFF
+
+Calcula a diferença entre duas datas.
+
+DiferençaDias = DATEDIFF(Tabela[DataInício], Tabela[DataFim], DAY)
+2.3. TOTALYTD
+
+Calcula o total acumulado até a data atual no ano.
+
+VendasYTD = TOTALYTD(SUM(Tabela[Vendas]), Tabela[DataVenda])
+3. Funções de Filtros
+3.1. CALCULATE
+
+A função CALCULATE é utilizada para alterar o contexto de filtro e realizar cálculos mais avançados.
+
+VendasAnoAtual = CALCULATE(SUM(Tabela[Vendas]), Tabela[Ano] = YEAR(TODAY()))
+3.2. FILTER
+
+Aplica um filtro a uma tabela e retorna uma tabela filtrada.
+
+VendasFiltradas = FILTER(Tabela, Tabela[Vendas] > 1000)
+3.3. ALL
+
+Remove filtros de uma tabela ou coluna.
+
+TotalVendasSemFiltro = CALCULATE(SUM(Tabela[Vendas]), ALL(Tabela))
+4. Funções de Agregação
+4.1. MAX
+
+Retorna o valor máximo em uma coluna.
+
+MaxVendas = MAX(Tabela[Vendas])
+4.2. MIN
+
+Retorna o valor mínimo em uma coluna.
+
+MinVendas = MIN(Tabela[Vendas])
+4.3. DISTINCTCOUNT
+
+Conta o número de valores distintos em uma coluna.
+
+ClientesDistintos = DISTINCTCOUNT(Tabela[ClienteID])
+5. Funções de Texto
+5.1. CONCATENATE
+
+Une duas cadeias de texto.
+
+NomeCompleto = CONCATENATE(Tabela[PrimeiroNome], Tabela[UltimoNome])
+5.2. LEFT
+
+Extrai um número específico de caracteres do início de uma cadeia de texto.
+
+Prefixo = LEFT(Tabela[Codigo], 3)
+5.3. MID
+
+Extrai uma parte de uma cadeia de texto, começando em uma posição específica.
+
+ParteCodigo = MID(Tabela[Codigo], 4, 2)
+6. Funções Lógicas
+6.1. IF
+
+Retorna um valor se uma condição for verdadeira e outro valor se for falsa.
+
+VendasAlto = IF(Tabela[Vendas] > 1000, "Alto", "Baixo")
+6.2. SWITCH
+
+Avalia uma expressão e retorna um valor correspondente ao primeiro caso verdadeiro.
+
+CategoriaVendas = SWITCH(TRUE(),
+    Tabela[Vendas] > 1000, "Alto",
+    Tabela[Vendas] > 500, "Médio",
+    "Baixo"
+)
+7. Funções de Tabela
+7.1. SUMX
+
+Realiza a soma sobre uma expressão em uma tabela.
+
+SomaTotalVendas = SUMX(Tabela, Tabela[Quantidade] * Tabela[PrecoUnitario])
+7.2. AVERAGEX
+
+Calcula a média de uma expressão sobre uma tabela.
+
+MediaLucro = AVERAGEX(Tabela, Tabela[Lucro])
+7.3. VALUES
+
+Retorna uma tabela com os valores distintos de uma coluna.
+
+CategoriasDistintas = VALUES(Tabela[Categoria])
